@@ -252,10 +252,15 @@
         <i class="fa-solid fa-chevron-down ms-auto"></i>
     </a>
 
+
     <div id="submenu" class="submenu">
         <a href="/demo/templates/employes/ajouter-employe.html"><i class="fa-solid fa-user-plus"></i> Ajouter
             employé</a>
-        <a href="/demo/templates/employes/liste-employes.html"><i class="fa-solid fa-list"></i> Afficher liste</a>
+        <a href="/demo/templates/employes/liste-employes.html">Afficher liste</a>
+        <a href="/employes/liste">
+            <i class="fa-solid fa-list"></i>
+            Liste employés
+        </a>
     </div>
 
     <a href="#"><i class="fa-solid fa-calendar-xmark"></i> Gestion des absences</a>
@@ -283,7 +288,7 @@
             Ajouter un employé
         </h4>
 
-        <form>
+        <form method="post" action="/employes/save">
 
             <div class="row">
 
@@ -295,12 +300,7 @@
                         Nom
                     </label>
 
-                    <input
-                            type="text"
-                            class="form-control"
-                            id="nom"
-                            placeholder="Nom de l'employé"
-                    >
+                    <input type="text" class="form-control" id="nom" name="nom">
 
                 </div>
 
@@ -312,12 +312,7 @@
                         Prénom
                     </label>
 
-                    <input
-                            type="text"
-                            class="form-control"
-                            id="prenom"
-                            placeholder="Prénom"
-                    >
+                    <input type="text" class="form-control" id="prenom" name="prenom">
 
                 </div>
 
@@ -329,12 +324,7 @@
                         Email
                     </label>
 
-                    <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            placeholder="email@example.com"
-                    >
+                    <input type="email" class="form-control" id="email" name="email">
 
                 </div>
 
@@ -346,12 +336,7 @@
                         Téléphone
                     </label>
 
-                    <input
-                            type="text"
-                            class="form-control"
-                            placeholder="+212..."
-                    >
-
+                    <input type="text" class="form-control" name="telephone">
                 </div>
 
                 <!-- POSTE -->
@@ -362,11 +347,7 @@
                         Poste
                     </label>
 
-                    <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Ex: Agent administratif"
-                    >
+                    <input type="text" class="form-control" name="poste">
 
                 </div>
 
@@ -378,10 +359,7 @@
                         Date d'embauche
                     </label>
 
-                    <input
-                            type="date"
-                            class="form-control"
-                    >
+                    <input type="date" class="form-control" name="dateEmbauche">
 
                 </div>
 
@@ -416,14 +394,11 @@
 
             <div class="mt-4">
 
+
                 <button type="submit" class="btn btn-primary">
-
                     <i class="fa-solid fa-floppy-disk"></i>
-
                     Enregistrer
-
                 </button>
-
             </div>
 
         </form>
@@ -487,6 +462,17 @@ Email: ${email}`;
     }
 
 </script>
+<!-- SCRIPT -->
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("submenu");
 
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+</script>
 </body>
 </html>
